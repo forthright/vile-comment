@@ -48,19 +48,6 @@ let read_lines = (filepath) => {
   return lines
 }
 
-let to_issue_message = (line) => {
-  let msg = []
-
-  // TODO: this is stupid
-  if (TODO.test(line)) msg.push("TODO")
-  if (HACK.test(line)) msg.push("HACK")
-  if (NOTE.test(line)) msg.push("NOTE")
-  if (FIXME.test(line)) msg.push("FIXME")
-  if (BUG.test(line)) msg.push("BUG")
-
-  return `(${msg.join(",")}) - ${line}`
-}
-
 let issues = (filepath, lines) => {
   var errors = lines.reduce((found, line, idx) => {
     // TODO: support choosing type of checks
@@ -69,7 +56,7 @@ let issues = (filepath, lines) => {
       found.push(vile.issue(
         vile.WARNING,
         filepath,
-        to_issue_message(line),
+        line,
         { line: idx + 1, character: 0 }
       ))
     }
