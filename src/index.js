@@ -25,6 +25,8 @@ const COMMENT = /(\/\/|\#|\/\*|\-\-)\s{0,}(TODO|NOTE|HACK)/i
 const HACK = /HACK/i
 const TODO = /TODO/i
 const NOTE = /NOTE/i
+// TODO: be able to specify types of comments to check via config
+// TODO: support these
 const FIXME = /FIXME/i
 const BUG = /BUG/i
 
@@ -48,17 +50,29 @@ let read_lines = (filepath) => {
   return lines
 }
 
+let signature = (line) => {
+  if (TODO.test(line)) {
+    return `comment::TODO`
+  } else if (HACK.test(line)) {
+    return `comment::HACK`
+  } else if (NOTE.test(line)) {
+    return `comment::NOTE`
+  }
+}
+
 let issues = (filepath, lines) => {
   var errors = lines.reduce((found, line, idx) => {
     // TODO: support choosing type of checks
     // TODO: multiple issues if > 1 checks on same line
     if (COMMENT.test(line)) {
-      found.push(vile.issue(
-        vile.WARNING,
-        filepath,
-        line,
-        { line: idx + 1, character: 0 }
-      ))
+      found.push(vile.issue({
+        type: vile.MAIN,
+        path: filepath,
+        title: line,
+        message: line,
+        where: { start: { line: idx + 1, character: 0 } },
+        signature: signature(line)
+      }))
     }
 
     return found
