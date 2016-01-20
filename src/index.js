@@ -60,10 +60,9 @@ let signature = (line) => {
   }
 }
 
-let issues = (filepath, lines) => {
-  var errors = lines.reduce((found, line, idx) => {
-    // TODO: support choosing type of checks
-    // TODO: multiple issues if > 1 checks on same line
+// TODO: multiple issues if > 1 checks on same line
+let issues = (filepath, lines) =>
+  lines.reduce((found, line, idx) => {
     if (COMMENT.test(line)) {
       found.push(vile.issue({
         type: vile.MAIN,
@@ -78,21 +77,12 @@ let issues = (filepath, lines) => {
     return found
   }, [])
 
-  return errors.length > 0 ?
-    errors : [ vile.issue(vile.OK, filepath) ]
-}
-
-let punish = (plugin_config) => {
-  return vile.promise_each(
+let punish = (plugin_config) =>
+  vile.promise_each(
     process.cwd(),
     allowed_file(plugin_config),
-    // TODO: use method that only gets files, not reads?
-    (filepath, data) => {
-      let lines = read_lines(filepath)
-      return issues(filepath, lines)
-    }
-  )
-}
+    (filepath) => issues(filepath, read_lines(filepath)),
+    { read_data: false })
 
 module.exports = {
   punish: punish
