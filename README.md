@@ -21,6 +21,15 @@ Various comment grammars are reported.
 
     npm i vile-comment
 
+## Ignore
+
+`vile.ignore` is used as the base ignore, but you can add onto it:
+
+```yaml
+comment:
+  ignore: [ "a/**", "b" ]
+```
+
 ## Architecture
 
 - `src` is es6+ syntax compiled with [babel](https://babeljs.io)
