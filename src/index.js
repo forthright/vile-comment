@@ -1,6 +1,5 @@
 let vile = require("@brentlintner/vile")
 let wrench = require("wrench")
-let ignore = require("ignore-file")
 
 // TODO: put somewhere else (and override with user conf)
 const SUPPORED_LANGS = new RegExp("\.(" + [
@@ -33,18 +32,9 @@ const NOTE = /NOTE/i
 const FIXME = /FIXME/i
 const BUG = /BUG/i
 
-let allowed_file = (plugin_config) => {
-  // TODO: support windows
-  var ignored = plugin_config.ignore ?
-    ignore.compile(plugin_config.ignore.join("\n")) : () => false
-
-  return (file) => {
-    return file.match(SUPPORED_LANGS) && !ignored(file)
-  }
-}
-
-// HACK: EPIC
-// TODO: epic hack here
+let allowed_file = (plugin_config) =>
+  (file, is_dir) =>
+    (is_dir || file.match(SUPPORED_LANGS)) && !vile.ignored(file)
 
 let read_lines = (filepath) => {
   const file = new wrench.LineReader(filepath)
@@ -63,7 +53,6 @@ let signature = (line) => {
   }
 }
 
-// TODO: multiple issues if > 1 checks on same line
 let issues = (filepath, lines) =>
   lines.reduce((found, line, idx) => {
     if (COMMENT.test(line)) {
