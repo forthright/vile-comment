@@ -14,7 +14,7 @@
     "test": "bin/test"
   },
   "dependencies": {
-    "@brentlintner/vile": "~0.5.9",
+    "@brentlintner/vile": "~0.5.10",
     "lodash": "~3.10.1",
     "wrench": "~1.5.8"
   },

@@ -34,7 +34,8 @@ const BUG = /BUG/i
 
 let allowed_file = (plugin_config) =>
   (file, is_dir) =>
-    (is_dir || file.match(SUPPORED_LANGS)) && !vile.ignored(file)
+    (is_dir || file.match(SUPPORED_LANGS)) &&
+      !vile.ignored(file, plugin_config)
 
 let read_lines = (filepath) => {
   const file = new wrench.LineReader(filepath)
