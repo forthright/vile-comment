@@ -1,4 +1,5 @@
 let vile = require("@brentlintner/vile")
+let _ = require("lodash")
 let wrench = require("wrench")
 
 // TODO: put somewhere else (and override with user conf)
@@ -32,10 +33,10 @@ const NOTE = /NOTE/i
 const FIXME = /FIXME/i
 const BUG = /BUG/i
 
-let allowed_file = (plugin_config) =>
+let allowed_file = (ignore) =>
   (file, is_dir) =>
     (is_dir || file.match(SUPPORED_LANGS)) &&
-      !vile.ignored(file, plugin_config)
+      !vile.ignored(file, ignore)
 
 let read_lines = (filepath) => {
   const file = new wrench.LineReader(filepath)
@@ -73,7 +74,7 @@ let issues = (filepath, lines) =>
 let punish = (plugin_config) =>
   vile.promise_each(
     process.cwd(),
-    allowed_file(plugin_config),
+    allowed_file(_.get(plugin_config, "ignore")),
     (filepath) => issues(filepath, read_lines(filepath)),
     { read_data: false })
 
