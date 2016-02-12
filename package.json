@@ -1,5 +1,5 @@
 {
-  "name": "@brentlintner/vile-comment",
+  "name": "@forthright/vile-comment",
   "version": "0.1.4",
   "description": "A vile plugin for punishing comments.",
   "main": "lib/index.js",
@@ -14,7 +14,7 @@
     "test": "bin/test"
   },
   "dependencies": {
-    "@brentlintner/vile": "~0.5.10",
+    "@forthright/vile": "~0.5.10",
     "lodash": "~3.10.1",
     "wrench": "~1.5.8"
   },
