@@ -15,7 +15,7 @@
   },
   "dependencies": {
     "@forthright/vile": "~0.5.14",
-    "lodash": "~4.3.0",
+    "lodash": "^3.10.1",
     "wrench": "~1.5.8"
   },
   "devDependencies": {
