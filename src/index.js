@@ -17,6 +17,7 @@ const SUPPORED_LANGS = new RegExp("\.(" + [
   "less",
   "sass",
   "scss",
+  "slim",
   "styl",
   "jade"
 ].join("|") + ")$")
