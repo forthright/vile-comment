@@ -45,13 +45,13 @@ let read_lines = (filepath) => {
   return lines
 }
 
-let signature = (line, loc) => {
+let signature = (line) => {
   if (TODO.test(line)) {
-    return `comment::TODO::${loc}`
+    return `comment::TODO::${line}`
   } else if (HACK.test(line)) {
-    return `comment::HACK::${loc}`
+    return `comment::HACK::${line}`
   } else if (NOTE.test(line)) {
-    return `comment::NOTE::${loc}`
+    return `comment::NOTE::${line}`
   }
 }
 
@@ -64,7 +64,7 @@ let issues = (filepath, lines) =>
         title: line,
         message: line,
         where: { start: { line: idx + 1, character: 0 } },
-        signature: signature(line, idx + 1)
+        signature: signature(line)
       }))
     }
 
