@@ -1,6 +1,6 @@
 {
   "name": "@forthright/vile-comment",
-  "version": "0.1.10",
+  "version": "0.1.11",
   "description": "A vile plugin for punishing comments.",
   "main": "lib/index.js",
   "files": [
