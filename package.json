@@ -12,7 +12,8 @@
     "compile": "babel -d lib -m common src",
     "dev": "bin/dev",
     "test": "bin/test",
-    "vile": "vile p -usi --nodecorations"
+    "vile": "vile p -usi --nodecorations",
+    "release-it": "release-it"
   },
   "dependencies": {
     "lodash": "^4.13.1",
