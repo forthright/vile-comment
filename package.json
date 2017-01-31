@@ -20,7 +20,7 @@
     "wrench": "~1.5.9"
   },
   "devDependencies": {
-    "@forthright/vile": ">=0.11.5",
+    "@forthright/vile": ">=0.11.6",
     "@forthright/vile-git": "^0.5.1",
     "@forthright/vile-stat": "0.0.14",
     "babel-cli": "^6.22.2",
@@ -36,6 +36,6 @@
     "sinon-chai": "~2.8.0"
   },
   "peerDependencies": {
-    "@forthright/vile": ">=0.11.5"
+    "@forthright/vile": ">=0.11.6"
   }
 }
