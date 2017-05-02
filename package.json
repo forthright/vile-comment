@@ -1,13 +1,23 @@
 {
-  "name": "@forthright/vile-comment",
+  "name": "vile-comment",
   "version": "0.1.17",
   "description": "A vile plugin for punishing comments.",
   "main": "lib/index.js",
   "files": [
-    "bin",
     "lib",
-    "src"
+    "LICENSE",
+    "README.md"
   ],
+  "author": "Brent Lintner <brent.lintner@gmail.com>",
+  "license": "MPL-2.0",
+  "bugs": {
+    "url": "https://github.com/forthright/vile-comment/issues"
+  },
+  "homepage": "https://github.com/forthright/vile-comment",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/forthright/vile-comment.git"
+  },
   "scripts": {
     "compile": "babel -d lib -m common src",
     "dev": "bin/dev",
@@ -20,9 +30,6 @@
     "wrench": "~1.5.9"
   },
   "devDependencies": {
-    "@forthright/vile": ">=0.13.0",
-    "@forthright/vile-git": "^0.5.1",
-    "@forthright/vile-stat": "0.0.14",
     "babel-cli": "^6.24.1",
     "babel-preset-es2015": "^6.24.1",
     "chai": "~3.5.0",
@@ -33,9 +40,12 @@
     "npm-check-updates": ">=2.10.5",
     "release-it": "^2.7.1",
     "sinon": "~2.1.0",
-    "sinon-chai": "~2.9.0"
+    "sinon-chai": "~2.9.0",
+    "vile": ">=0.13.0",
+    "vile-git": "^0.5.1",
+    "vile-stat": "0.0.14"
   },
   "peerDependencies": {
-    "@forthright/vile": ">=0.13.0"
+    "vile": ">=0.13.0"
   }
 }
