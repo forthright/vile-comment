@@ -22,28 +22,28 @@
     "compile": "babel -d lib -m common src",
     "dev": "bin/dev",
     "test": "bin/test",
-    "vile": "vile p -usi --nodecorations",
+    "vile": "vile p -u -n",
     "release-it": "release-it"
   },
   "dependencies": {
     "lodash": "^4.17.4",
-    "wrench": "~1.5.9"
+    "wrench": "^1.5.9"
   },
   "devDependencies": {
     "babel-cli": "^6.24.1",
     "babel-preset-es2015": "^6.24.1",
-    "chai": "~3.5.0",
-    "coffee-script": "~1.12.5",
-    "istanbul": "~0.4.5",
+    "chai": "^3.5.0",
+    "coffee-script": "^1.12.5",
+    "istanbul": "^0.4.5",
     "mimus": "^0.2.5",
-    "mocha": "~3.2.0",
-    "npm-check-updates": ">=2.10.5",
+    "mocha": "^3.2.0",
+    "npm-check-updates": "^2.10.5",
     "release-it": "^2.7.1",
-    "sinon": "~2.1.0",
-    "sinon-chai": "~2.9.0",
-    "vile": ">=0.14.0"
+    "sinon": "^2.1.0",
+    "sinon-chai": "^2.9.0",
+    "vile": "^0.15.0"
   },
   "peerDependencies": {
-    "vile": ">=0.13.0"
+    "vile": ">=0.15.0"
   }
 }
