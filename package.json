@@ -26,8 +26,8 @@
     "release-it": "release-it"
   },
   "dependencies": {
-    "lodash": "^4.17.4",
-    "wrench": "^1.5.9"
+    "linez": "^4.1.4",
+    "lodash": "^4.17.4"
   },
   "devDependencies": {
     "babel-cli": "^6.24.1",

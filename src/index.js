@@ -1,6 +1,6 @@
 let vile = require("vile")
 let _ = require("lodash")
-let wrench = require("wrench")
+let linez = require("linez")
 
 // TODO: put somewhere else (and override with user conf)
 const SUPPORED_LANGS = new RegExp("\.(" + [
@@ -39,13 +39,6 @@ let allowed_file = (ignore) =>
     (is_dir || file.match(SUPPORED_LANGS)) &&
       !vile.ignored(file, ignore)
 
-let read_lines = (filepath) => {
-  const file = new wrench.LineReader(filepath)
-  let lines = []
-  while(file.hasNextLine()) { lines.push(file.getNextLine()) }
-  return lines
-}
-
 let signature = (line) => {
   if (TODO.test(line)) {
     return `comment::TODO::${line}`
@@ -57,18 +50,17 @@ let signature = (line) => {
 }
 
 let issues = (filepath, lines) =>
-  lines.reduce((found, line, idx) => {
+  _.reduce(lines, (found, linez_line) => {
+    const line = linez_line.text
     if (COMMENT.test(line)) {
       found.push(vile.issue({
         type: vile.MAIN,
         path: filepath,
-        title: line,
         message: line,
-        where: { start: { line: idx + 1, character: 0 } },
+        where: { start: { line: linez_line.number } },
         signature: signature(line)
       }))
     }
-
     return found
   }, [])
 
@@ -76,8 +68,8 @@ let punish = (plugin_config) =>
   vile.promise_each(
     process.cwd(),
     allowed_file(_.get(plugin_config, "ignore")),
-    (filepath) => issues(filepath, read_lines(filepath)),
-    { read_data: false })
+    (filepath, data) =>
+      issues(filepath, linez(data).lines))
 
 module.exports = {
   punish: punish
