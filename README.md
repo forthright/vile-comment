@@ -2,20 +2,15 @@
 
 A [vile](http://vile.io) plugin for punishing comments.
 
-## Supported Checks
+## Requirements
 
-Various comment grammars are reported.
+- [Node.js](http://nodejs.org)
+
+## Supported Checks
 
 - `TODO`
 - `HACK`
 - `NOTE`
-- `FIXME`
-- `BUG`
-
-## Requirements
-
-- [nodejs](http://nodejs.org)
-- [npm](http://npmjs.org)
 
 ## Installation
 

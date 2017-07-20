@@ -30,9 +30,7 @@ const HACK = /HACK/i
 const TODO = /TODO/i
 const NOTE = /NOTE/i
 // TODO: be able to specify types of comments to check via config
-// TODO: support these
-const FIXME = /FIXME/i
-const BUG = /BUG/i
+// TODO: support things like FIXME/BUG
 
 let allowed_file = (ignore) =>
   (file, is_dir) =>
