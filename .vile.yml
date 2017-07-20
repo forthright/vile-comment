@@ -1,32 +1,23 @@
 vile:
   ignore:
-    - LICENSE
-    - appveyor.yml
+    - ".*"
+    - bin
     - coverage
-    - coffeelint.json
-    - .babelrc
-    - .build
-    - .npmignore
-    - .travis.yml
-    - .vim.custom
-    - node_modules
+    - doc
+    - "*.json"
     - lib
+    - LICENSE
+    - "*.lock"
+    - "*.log"
+    - "*.md"
+    - node_modules
+    - src/@types
     - tags
-    - .test
-    - .ctags
-    - .git
-    - circle.yml
-    - .editorconfig
-    - .eslintignore
-    - .eslintrc
-    - .gitignore
-    - .npmrc
-    - tags
+    - test/fixtures
+    - test/mocha.opts
     - tmp
-    - "/lib"
     - vendor
-    - README.md
-    - .vile.yml
+    - "*.yml"
 
 depcheck:
   config:
