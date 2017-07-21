@@ -1,6 +1,6 @@
 # vile-comment
 
-A [vile](http://vile.io) plugin for punishing comments.
+A [Vile](http://vile.io) plugin for keeping track of TODO/HACK style comments in your code.
 
 ## Requirements
 
@@ -27,7 +27,7 @@ comment:
 
 ## Versioning
 
-This project ascribes to [semantic versioning](http://semver.org).
+This project uses [Semver](http://semver.org).
 
 ## Licensing
 
@@ -54,8 +54,6 @@ Even if you are uncomfortable with code, an issue or question is welcome.
 
 ### Code Of Conduct
 
-This project ascribes to [contributor-covenant.org](http://contributor-covenant.org).
-
 By participating in this project you agree to our [Code of Conduct](CODE_OF_CONDUCT.md).
 
 ### Maintainers
@@ -64,10 +62,10 @@ By participating in this project you agree to our [Code of Conduct](CODE_OF_COND
 
 ## Architecture
 
-- `src` is es6+ syntax compiled with [babel](https://babeljs.io)
+- `src` is es6+ syntax compiled with [Babel](https://babeljs.io)
 - `lib` generated js library
 
-## Hacking
+## Developing
 
     cd vile-comment
     npm install
