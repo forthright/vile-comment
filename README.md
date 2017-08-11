@@ -14,9 +14,16 @@ A [Vile](http://vile.io) plugin for keeping track of TODO/HACK style comments in
 
 ## Installation
 
+This plugin is already packaged with [vile's core lib](https://github.com/forthright/vile),
+but you can also install it manually:
+
     npm i -D vile vile-comment
 
-## Ignore
+## Usage
+
+    vile a -p comment
+
+## Config
 
 `vile.ignore` is used as the base ignore, but you can add onto it:
 
